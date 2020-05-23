@@ -1,0 +1,57 @@
+.Numeric{
+    background-color: #f1f3f4;
+    color: #202124;
+    border: 1px solid #f1f3f4;
+
+}
+.calbutton{
+    border-radius: 4px;
+    padding: 4px;
+    width:80px;
+    text-align: center;
+    margin:4px;
+    line-height: 34px;
+    font-size: 14px;
+    font-weight: normal;
+}
+.action{
+    background: #dfe1e5;
+    color: #202124;
+    border: 1px solid #dfe1e5;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.resultBox{
+    width: 98.5%;
+    height: 72px;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    margin: auto;
+    padding: 10px 14px 0px 10px;
+    box-sizing: border-box;
+}
+
+#calcbody{
+    width:43%;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    margin: auto;
+    padding: 10px 14px 0px 10px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+
+.equation{
+    font-size: 30px;
+}
+.result{
+    color: #70757a;
+    font-size: small;
+}
+.equal_btn{
+    
+    background: #4285f4;
+    color: #fff;
+    border: 1px solid #4285f4;
+}
