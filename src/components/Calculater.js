@@ -20,6 +20,47 @@ class Calculater extends Component {
         "border-radius": "4px"
     }
 
+
+    parser=(eq)=>{
+        console.log(eq)
+        var numeric=[]
+        var current=''
+        var operation=[]
+        var checknewOpp=true
+        for(var i=0;i<eq.length;i++){
+            if (isNaN(eq[i]) && eq[i] !=='.' ){
+
+            operation.push(eq[i])
+            numeric.push(current)
+            current=''
+            }
+            else{
+                current=current+eq[i]
+            }
+        }
+        numeric.push(current)
+        var result=''
+        console.log(operation)
+        operation.forEach(op=>{
+            if(op==="+"){
+                result=parseFloat(numeric[0])+parseFloat(numeric[1])
+            }
+            if(op==="-"){
+                result=parseFloat(numeric[0])-parseFloat(numeric[1])
+            }
+            if(op==="×"){
+                result=parseFloat(numeric[0])*parseFloat(numeric[1])
+            }
+            if(op==="÷"){
+                result=parseFloat(numeric[0])/parseFloat(numeric[1])
+            }
+                numeric[0]=result
+                numeric.splice(1, 1)
+            }
+        )
+        return numeric[0]
+    }
+
     resutBox = () => {
         return (
             <div className="resultBox">
@@ -31,7 +72,7 @@ class Calculater extends Component {
     }
 
     handleClick = (value) => {
-        try {
+        try{
             var { eq,result } = this.state;
             if (eq[0] === "0") {
                 eq = eq.substring(1, eq.length)
@@ -39,7 +80,7 @@ class Calculater extends Component {
             }
 
             if (value === "=") {
-                result = eval(eq)
+                result = this.parser(eq)
                 var eq =result
                 this.setState({ result,eq })
             }
@@ -75,7 +116,7 @@ class Calculater extends Component {
                             <button name="9" className="Numeric calbutton " onClick={(e) => this.handleClick(e.target.name)}>9</button>
                         </td>
                         <td>
-                            <button name="/" className="action calbutton" onClick={(e) => this.handleClick(e.target.name)}>÷</button>
+                            <button name="÷" className="action calbutton" onClick={(e) => this.handleClick(e.target.name)}>÷</button>
                         </td>
                     </tr>
                     <tr>
@@ -89,7 +130,7 @@ class Calculater extends Component {
                             <button className="Numeric calbutton" name="6" onClick={(e) => this.handleClick(e.target.name)}>6</button>
                         </td>
                         <td>
-                            <button className="action calbutton" name="*" onClick={(e) => this.handleClick(e.target.name)}>×</button>
+                            <button className="action calbutton" name="×" onClick={(e) => this.handleClick(e.target.name)}>×</button>
                         </td>
                     </tr>
                     <tr>
