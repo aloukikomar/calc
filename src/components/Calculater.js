@@ -83,18 +83,18 @@ class Calculater extends Component {
                 result = this.parser(eq)
                 var eq =result
                 this.setState({ result,eq })
-            }
+            }else{
             if (value === "CE") {
                 this.setState({ eq: eq.substring(0, eq.length - 1) })
             }
             else {
-                if (isNaN(value) && isNaN(eq[eq.length - 1] && value !== "." && value !== "=")) {
-                    result = result.substring(0, eq.length - 1)
+                if (isNaN(value) && isNaN(eq[eq.length - 1])) {
+                    eq = eq.substring(0, eq.length - 1)
                 }
                 eq = eq + value
                 this.setState({ eq })
             }
-        }
+        }}
         catch{
             console.log("err")
         }
